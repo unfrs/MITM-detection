@@ -13,8 +13,8 @@ The MITM Detection Tool was created to address the growing threat of MITM attack
 How to Use:
 
     Installation:
-        Ensure you have Python installed on your system.
-        Install required dependencies using pip install -r requirements.txt.
+        git clone https://github.com/unfrs/MITM-detection.git
+        pip install -r requirements.txt.
 
     Run the Tool:
         Execute the script: python mitm_detection_tool.py.
