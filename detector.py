@@ -7,6 +7,7 @@ from colorama import Fore, Style, init
 init(autoreset=True)  # autoreset=True automatically resets colors after each print
 
 def get_mac(ip):
+    # Function to get the MAC address of a given IP using ARP requests
     arp_request = scapy.ARP(pdst=ip)
     broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
     arp_request_broadcast = broadcast / arp_request
@@ -16,6 +17,7 @@ def get_mac(ip):
 
 def sniff(interface, output_file, detected_mitm_set):
     try:
+        # Sniff function to capture and process packets on the specified network interface
         scapy.sniff(iface=interface, store=False, prn=lambda x: process_sniffed_packet(x, output_file, detected_mitm_set))
     except Exception as e:
         print(f"Error: {e}")
@@ -23,10 +25,12 @@ def sniff(interface, output_file, detected_mitm_set):
 def process_sniffed_packet(packet, output_file, detected_mitm_set):
     if packet.haslayer(scapy.ARP) and packet[scapy.ARP].op == 2:
         try:
+            # Process ARP packets to identify potential MITM attacks
             real_mac = get_mac(packet[scapy.ARP].psrc)
             response_mac = packet[scapy.ARP].hwsrc
 
             if real_mac != response_mac:
+                # If MAC addresses do not match, potential MITM attack detected
                 victim_ip = packet[scapy.ARP].psrc
                 victim_mac = real_mac
                 attacker_mac = response_mac
@@ -38,6 +42,7 @@ def process_sniffed_packet(packet, output_file, detected_mitm_set):
                                 f"    [+] Attacker MAC: {attacker_mac}\n"
 
                 if (victim_ip, victim_mac) not in detected_mitm_set:
+                    # If this incident is new, log and print the alert
                     with open(output_file, 'a') as notepad:
                         notepad.write(alert_message + "\n\n")
                         print(Fore.GREEN + alert_message + Style.RESET_ALL)
@@ -47,12 +52,14 @@ def process_sniffed_packet(packet, output_file, detected_mitm_set):
 
 def clear_notepad(output_file):
     try:
+        # Function to clear the notepad file
         with open(output_file, 'w') as notepad:
             notepad.write("[+] Notepad cleared!\n")
     except Exception as e:
         print(f"Error: {e}")
 
 def print_ascii_logo():
+    # Function to print the ASCII logo for the MITM Detection Tool
     ascii_logo = """
     
 $$$$$$$$\ $$\   $$\ $$$$$$$\    $$\    $$$$$$\  
@@ -73,7 +80,7 @@ if __name__ == "__main__":
     os.system("clear" if os.name == "posix" else "cls")
     print_ascii_logo()
 
-    output_file = "log.txt"
+    output_file = "logs.txt"
     detected_mitm_set = set()
     print("[+] MITM Detection Tool - Press Ctrl+C to exit")
 
