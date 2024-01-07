@@ -73,7 +73,7 @@ if __name__ == "__main__":
     os.system("clear" if os.name == "posix" else "cls")
     print_ascii_logo()
 
-    output_file = "logs.txt"
+    output_file = "log.txt"
     detected_mitm_set = set()
     print("[+] MITM Detection Tool - Press Ctrl+C to exit")
 
