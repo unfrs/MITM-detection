@@ -17,14 +17,14 @@ How to Use:
         pip install -r requirements.txt.
 
     Run the Tool:
-        Execute the script: python mitm_detection_tool.py.
+        Execute the script: sudo python detector.py
         Enter your network interface when prompted (e.g., eth0).
 
     Operation:
         Enter '1' to run the detector or '2' to clear the notepad.
-        The tool will continuously monitor network traffic for potential MITM attacks.
-        Detected incidents will be displayed with detailed information, including victim IP addresses and MAC addresses.
-        New alerts are highlighted with color-coded output.
+        ![Screenshot_2](https://github.com/unfrs/MITM-detection/assets/107608491/1d56e2ff-32d4-40de-8fb2-22ac1b22f264)
+        ![Screenshot_1](https://github.com/unfrs/MITM-detection/assets/107608491/619b9a2a-dc2f-4f83-a064-0445bb0e684b)
+
 
     Exiting:
         Press Ctrl+C to exit the MITM Detection Tool.
