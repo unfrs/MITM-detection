@@ -26,7 +26,7 @@ How to Use:
     Exiting:
         Press Ctrl+C to exit the MITM Detection Tool.
 
-![Screenshot_2](https://github.com/unfrs/MITM-detection/assets/107608491/3e0cfc19-410d-47b5-832a-e1523f65462c)
+
 ![Screenshot_1](https://github.com/unfrs/MITM-detection/assets/107608491/7e624bed-c9ad-4610-b2be-2f89876cbf2a)
 
 By following these simple steps, users can enhance their network security and stay vigilant against potential MITM threats.
