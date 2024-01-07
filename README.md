@@ -22,11 +22,11 @@ How to Use:
 
     Operation:
         Enter '1' to run the detector or '2' to clear the notepad.
-        ![Screenshot_2](https://github.com/unfrs/MITM-detection/assets/107608491/1d56e2ff-32d4-40de-8fb2-22ac1b22f264)
-        ![Screenshot_1](https://github.com/unfrs/MITM-detection/assets/107608491/619b9a2a-dc2f-4f83-a064-0445bb0e684b)
-
 
     Exiting:
         Press Ctrl+C to exit the MITM Detection Tool.
+
+![Screenshot_2](https://github.com/unfrs/MITM-detection/assets/107608491/3e0cfc19-410d-47b5-832a-e1523f65462c)
+![Screenshot_1](https://github.com/unfrs/MITM-detection/assets/107608491/7e624bed-c9ad-4610-b2be-2f89876cbf2a)
 
 By following these simple steps, users can enhance their network security and stay vigilant against potential MITM threats.
